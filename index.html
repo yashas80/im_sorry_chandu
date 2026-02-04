@@ -1,56 +1,151 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>I'm Sorry Chandu❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry Chandu🧸</title>
+
     <style>
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #fff0f5;
+            background: linear-gradient(to bottom right, #ffe6f0, #fff5f9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             text-align: center;
-            padding: 50px;
         }
-        img {
-            width: 300px;
-            border-radius: 15px;
-            margin: 20px;
+
+        .container {
+            padding: 30px 20px;
+            max-width: 500px;
+            width: 100%;
         }
+
         h1 {
             color: #d63384;
+            font-size: 26px;
+            margin-bottom: 15px;
         }
-        p {
+
+        .bear {
+            font-size: 80px;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .message {
             font-size: 18px;
-            max-width: 600px;
-            margin: auto;
+            margin: 20px 0;
+            line-height: 1.5;
         }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
         button {
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        #yesBtn {
             background-color: #ff4d6d;
             color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
         }
-        button:hover {
-            background-color: #e63950;
+
+        #noBtn {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        #yesBtn:active {
+            transform: scale(0.95);
+        }
+
+        #noBtn:active {
+            transform: scale(0.95);
+        }
+
+        @media (min-width: 600px) {
+            h1 { font-size: 30px; }
+            .bear { font-size: 100px; }
         }
     </style>
 </head>
+
 <body>
 
-    <h1>I'm Truly Sorry ❤️</h1>
+<div class="container">
 
-    <img src="photo1.jpg">
-    <img src="photo2.jpg">
+    <div class="bear">🧸</div>
 
-    <p>
-        I made a mistake, and I regret it deeply.  
-        You mean more to me than my ego ever should.  
-        I hope you can forgive me and give me a chance to make things right.
-    </p>
+    <h1>I'm Truly Sorry</h1>
 
-    <br><br>
-    <button onclick="alert('Thank you for hearing me out ❤️')">Click if you forgive me</button>
+    <div class="message" id="apologyText">
+        I made a mistake… and I regret it deeply.
+        You mean the world to me.
+        Can you please forgive me?
+    </div>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="forgive()">Yes ❤️</button>
+        <button id="noBtn" onclick="apologizeMore()">No 💔</button>
+    </div>
+
+</div>
+
+<script>
+    let apologyCount = 0;
+
+    const messages = [
+        "Please… I promise I will never make this mistake again 🥺",
+        "You are too important to me to ever hurt you again 🧸",
+        "I’ll learn, I’ll grow, I’ll be better for us ❤️",
+        "I never want to see you upset because of me again 💔",
+        "I promise with all my heart this will not happen again 🥺",
+        "I’ll spend every day proving I can do better 💕"
+    ];
+
+    function apologizeMore() {
+        if (apologyCount < messages.length) {
+            document.getElementById("apologyText").innerHTML = messages[apologyCount];
+            apologyCount++;
+        } else {
+            document.getElementById("apologyText").innerHTML =
+                "Okay 😭 I will keep apologizing forever until you forgive me 🧸❤️";
+        }
+
+        document.getElementById("yesBtn").style.transform =
+            "scale(" + (1 + apologyCount * 0.1) + ")";
+    }
+
+    function forgive() {
+        document.body.innerHTML = `
+            <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100vh;padding:20px;text-align:center;background:linear-gradient(to bottom right,#ffe6f0,#fff5f9);">
+                <div style="font-size:90px;">🧸💖</div>
+                <h1 style="color:#d63384;">Thank You For Forgiving Me ❤️</h1>
+                <p style="font-size:18px;max-width:400px;">
+                    I promise to protect your heart better from now on.
+                    You mean everything to me.
+                </p>
+            </div>
+        `;
+    }
+</script>
 
 </body>
 </html>
